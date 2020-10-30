@@ -1,0 +1,11 @@
+.parallax{
+    background-image: url('https://f.i.uol.com.br/fotografia/2018/10/03/15386044565bb53da86cc2e_1538604456_5x2_lg.jpg');
+
+    min-height: 500px;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
