@@ -18,7 +18,7 @@ ul.social-network {
   }
   
   .faFacebook:hover{
-    color: #3b5998;
+    color: #0072b1;
   }
   
   .faLinkedin:hover{
@@ -26,6 +26,9 @@ ul.social-network {
   }
   
   .faInstagram:hover{
-  color: #C13584;
-}
+    color: #0072b1;
+  }
+  .bgcolor{
 
+    background-color: #071B4D;
+  }
