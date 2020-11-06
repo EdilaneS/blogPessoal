@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-navebar',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    public auth: AuthService
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
-
+  sair(){
+    this.router.navigate(['/login'])
+    localStorage.clear()
+  }
 }
