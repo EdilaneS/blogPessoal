@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
+import { AlertasService } from '../service/alertas.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
 
@@ -23,7 +24,8 @@ export class FeedComponent implements OnInit {
 
   constructor(
     private postagemService: PostagemService,
-    private temaService: TemaService
+    private temaService: TemaService,
+    private alert: AlertasService
     
     ) { }
 
@@ -45,12 +47,12 @@ export class FeedComponent implements OnInit {
     this.postagem.tema = this.tema
 
     if(this.postagem.titulo == null || this.postagem.texto == null || this.postagem.tema == null){
-      alert('Preencha Todos Os Campos Antes De Publicar!')
+      this.alert.showAlertDanger('Preencha Todos Os Campos Antes De Publicar!')
     }else{
       this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) =>{
         this.postagem = resp
         this.postagem = new Postagem() //inserir um novo post sem apagar o que já fez
-        alert('Postagem Realizada Com Sucesso!')
+        this.alert.showAlertSuccess('Postagem Realizada Com Sucesso!')
         this.findAllPostagens()
       })
     }
